@@ -17,9 +17,9 @@ export const getCustomers = async (req, res) => {
   res.json(customers);
 };
 
-// ✅ Read by slug
-export const getCustomerBySlug = async (req, res) => {
-  const customer = await Customer.findOne({ slug: req.params.slug });
+// ✅ Read by id
+export const getCustomerById = async (req, res) => {
+  const customer = await Customer.findOne({ _id: req.params.id });
   if (!customer) return res.status(404).json({ error: "Not found" });
   res.json(customer);
 };
@@ -27,7 +27,7 @@ export const getCustomerBySlug = async (req, res) => {
 // ✅ Update
 export const updateCustomer = async (req, res) => {
   const customer = await Customer.findOneAndUpdate(
-    { slug: req.params.slug },
+    { id: req.params.id },
     req.body,
     { new: true }
   );
