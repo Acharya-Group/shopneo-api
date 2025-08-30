@@ -120,11 +120,4 @@ export const deleteCustomer = async (req, res) => {
   }
 };
 
-// Helper function to get public_id from Cloudinary URL
-function getPublicId(url) {
-  // Example: https://res.cloudinary.com/demo/image/upload/v1234567/folder/file.jpg
-  const parts = url.split("/");
-  const fileWithExt = parts[parts.length - 1]; // file.jpg
-  const publicId = fileWithExt.split(".")[0]; // file
-  return publicId;
-}
+
